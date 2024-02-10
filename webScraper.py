@@ -33,5 +33,5 @@ def update_Diseases():
             print("Error: ", e)
             browser.quit()
             continue
-update_Diseases()
+
 
