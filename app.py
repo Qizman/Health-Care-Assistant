@@ -10,7 +10,10 @@ def home():
 #route to create connection to chatgpt
 @app.route('/chat', methods=['POST'])
 def chat():
-    return "test complete"
+    print(request.get_json()['user_input'])
+    response = oAI.chat(request.get_json()['user_input'])
+    print(response)
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')

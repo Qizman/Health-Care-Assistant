@@ -1,7 +1,7 @@
 import openai
 import json
 
-def chat():
+def chat(user_input):
     #config json load
     with open('config.json') as f:
         try:
@@ -17,7 +17,7 @@ def chat():
     model="gpt-3.5-turbo",
     messages=[
         {"role": "system", "content": "You are a Doctors assistant that when asked questions use previosly given context to help advise the docctor?"},
-        {"role": "user", "content": "what is the best treatment for a cold?"}
+        {"role": "user", "content": user_input},
     ])
 
     return response.choices[0].message.content

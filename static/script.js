@@ -7,7 +7,7 @@ function submit(){
     //clear text
     buttton.disabled = true;
     createUserTextInMyDiv(text.value);
-    sendHttpRequest('POST', 'http://localhost:5000/chat', {message: 'hello'})
+    sendHttpRequest('POST', 'http://localhost:5000/chat', {user_input: text.value})
     text.value = "";
     text.disabled = false;
     buttton.disabled = false;
@@ -19,8 +19,6 @@ function sendHttpRequest(method, url, data) {
     xhr.open(method, url);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onload = function () {
-        const text = document.getElementById("input");
-        const buttton = document.getElementById("submit");
       if (xhr.status >= 200 && xhr.status < 300) {
         resolve(xhr.response);
         createSystemResponseInMyDiv(xhr.response);
