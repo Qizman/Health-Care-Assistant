@@ -34,4 +34,17 @@ def update_Diseases():
             browser.quit()
             continue
 
-
+def get_Diseases():
+    #get json list
+    string = ""
+    with open('diseases.json') as f:
+        try:
+            data = json.load(f)
+        except ValueError:
+            print("File is empty")
+            data = []
+            exit()
+    #for loop to go through the list
+    for i in data:
+        string += i["info"] + "\n"
+    return string
