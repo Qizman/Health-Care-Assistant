@@ -3,11 +3,11 @@
 <html>
 <head>
   <title>My Web Page</title>
-  <script src="script.js"></script>
+  <script src="{{url_for('static', filename='script.js')}}"></script>
 </head>
 <body>
-  <input type="text" id="myTextBox">
-  <button onclick="addElement()">Add Element</button>
+  <input type="text" id="input">
+  <button id="submit" onclick="submit()">Add Element</button>
   <button onclick="clearElements()">Clear Elements</button>
   <div id="myDiv"></div>
 </body>
